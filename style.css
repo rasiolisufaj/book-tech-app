@@ -1,12 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 
-/* background: rgb(0,255,179);
-background: linear-gradient(45deg, rgba(0,255,179,1) 0%, rgba(42,147,159,1) 32%, rgba(39,138,144,1) 65%, rgba(4,0,66,1) 100%); */
-
 * {
   box-sizing: border-box;
-  /* margin: 0;
-  padding: 0; */
 }
 
 body {
@@ -149,11 +144,45 @@ img {
 .form-container,
 .book-image {
   width: 50%;
-  border: 2px solid red;
-  padding: 3em;
+  padding: 1em 3em;
+}
+
+.book-image {
+  padding-top: 3rem;
 }
 
 .book-content {
   display: flex;
   flex-direction: column;
+}
+
+.form-container h1 {
+  font-size: 2rem;
+  color: #3370db;
+}
+
+.form-container input,
+.form-container textarea {
+  margin-bottom: 10px;
+  padding: 0.7em 1.5em;
+  border: 1px solid #3370db;
+  border-radius: 2px;
+  outline: 0;
+}
+
+.form-container textarea {
+  font-size: 1rem;
+}
+
+.form-btn {
+  color: #fff;
+  background-color: #3370db;
+  outline: 0;
+  border: 0;
+  border-radius: 2px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
 }
