@@ -1,1 +1,13 @@
 https://html5up.net/photon
+
+Book CRUD
+  1. Reading all the books
+    1.a fetch
+    1.b populate the books array with fetched data
+    1.c update UI
+
+  2. Create a new book
+    2.a get all user input
+    2.b fetch
+    2.c push to array
+    2.d update UI
