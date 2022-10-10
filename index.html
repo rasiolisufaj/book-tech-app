@@ -22,7 +22,7 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quia
         velit consequuntur illum aliquid nam sit!
       </p>
-      <a href="#" id="header-btn">DISCOVER</a>
+      <a href="#book-section" id="header-btn">DISCOVER</a>
     </header>
 
     <section class="flex" id="book-section">
@@ -73,7 +73,6 @@
       <div class="form-container">
         <h1>Add your favourite book!</h1>
         <form class="book-content">
-          <input type="email" name="email" id="email" placeholder="Email" />
           <input
             type="text"
             name="book-title"
@@ -81,12 +80,18 @@
             placeholder="Book title"
           />
           <input type="text" name="author" id="author" placeholder="Author" />
+
+
+          <input type="email" name="email" id="email" placeholder="Email" />
+
+
           <input
             type="url"
             name="book-img-url"
             id="book-img-url"
             placeholder="Book image url"
           />
+
           <textarea
             name="description"
             id="description"
@@ -94,13 +99,33 @@
             rows="10"
             placeholder="Book description"
           ></textarea>
-          <button class="form-btn" type="submit">Submit</button>
+          <button class="form-btn" type="submit">SUBMIT</button>
         </form>
       </div>
       <div class="book-image">
-        <img src="/img/form img.jpg" />
+        <img src="/img/form img1.jpg" />
       </div>
     </section>
+
+    <footer id="footer">
+      <ul class="icons">
+        <li><i class="fa-brands fa-twitter"></i></li>
+        <li><i class="fa-brands fa-facebook-f"></i></li>
+        <li><i class="fa-brands fa-instagram"></i></li>
+        <li><i class="fa-brands fa-github"></i></li>
+        <li><i class="fa-solid fa-envelope"></i></li>
+      </ul>
+      <ul class="copyright">
+        <li>&copy; BookApp 2022</li>
+        <li>
+          Design:
+          <a href="https://github.com/rasiolisufaj" target="_blank">Rasiol</a>
+        </li>
+        <li>
+          Demo Images: <a href="https://freepik.com" target="_blank">Freepik</a>
+        </li>
+      </ul>
+    </footer>
 
     <script src="script.js"></script>
   </body>
