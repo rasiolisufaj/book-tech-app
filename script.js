@@ -5,54 +5,57 @@ const bookDescriptionElement = document.getElementById("description");
 const bookImageUrlElement = document.getElementById("book-img-url");
 const bookEmailElement = document.getElementById("email");
 const formElement = document.getElementById("book-form");
-
 let books = [];
-const URL_API = "https://crudcrud.com/api/6fc2048449e34cd8a821f63aad719693";
+const URL_API = "https://crudcrud.com/api/3eaf27a21b9a41808b119719b1548605";
 
 // Fetch Books from Backend
 async function fetchBooks() {
   const response = await fetch(URL_API + "/books");
   if (response.status === 200) {
     const data = await response.json();
-    books = data;
+    return data;
   }
 }
 
-fetchBooks().then(() => {
+fetchBooks().then((data) => {
+  books = data;
   displayBooks();
 });
 
 // Display Books
 function displayBooks() {
-  console.log("BOOKS", books);
+  bookRowElement.innerHTML = "";
+
+  books.forEach((book) => {
+    const bookTemplate = generateBookTemplate(book);
+    bookRowElement.append(bookTemplate);
+  });
 }
 
-// Create Book
-formElement.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const bookTitle = bookTitleElement.value;
-  const bookEmail = bookEmailElement.value;
-  const bookAuthor = bookAuthorElement.value;
-  const bookImgUrl = bookImageUrlElement.value;
-  const bookDescription = bookDescriptionElement.value;
-  const newBook = {
-    title: bookTitle,
-    email: bookEmail,
-    author: bookAuthor,
-    img: bookImgUrl,
-    description: bookDescription,
-  };
-  addBook(newBook).then(() => {
-    displayBooks();
-  });
-});
+// Function Generate Book Template
+function generateBookTemplate(book) {
+  const div = document.createElement("div");
+  div.classList.add("book-info", "flex");
+  div.innerHTML = `
+    <img src="${book.image}" alt="${book.title}" />
+    <h3>${book.title}</h3>
+    <p>
+      ${book.description}
+    </p>
+    <a href="#" class="btn">MORE</a>
+    <input type="hidden" value= ${book._id}>
+  `;
+  bookRowElement.append(div);
+  return div;
+}
 
+// Function Add Book
 async function addBook(newBook) {
-  const response = await fetch(URL_API + "/books", {
+  const response = await fetch(URL_API + "/books/", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
       Accept: "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(newBook),
   });
@@ -62,3 +65,40 @@ async function addBook(newBook) {
     console.log(data);
   }
 }
+
+// Create Book
+formElement.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const bookTitle = bookTitleElement.value;
+  const bookAuthor = bookAuthorElement.value;
+  const bookEmail = bookEmailElement.value;
+  const bookImgUrl = bookImageUrlElement.value;
+  const bookDescription = bookDescriptionElement.value;
+
+  if (
+    bookTitle === "" ||
+    bookAuthor === "" ||
+    bookEmail === "" ||
+    bookImgUrl === "" ||
+    bookDescription === ""
+  ) {
+    return alert("Please fill in the form.");
+  }
+
+  const newBook = {
+    title: bookTitle,
+    author: bookAuthor,
+    email: bookEmail,
+    image: bookImgUrl,
+    description: bookDescription,
+  };
+  addBook(newBook).then(() => {
+    displayBooks();
+  });
+
+  bookTitleElement.value = "";
+  bookAuthorElement.value = "";
+  bookEmailElement.value = "";
+  bookImageUrlElement.value = "";
+  bookDescriptionElement.value = "";
+});

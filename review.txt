@@ -11,3 +11,15 @@ Book CRUD
     2.b fetch
     2.c push to array
     2.d update UI
+
+// Create Book
+
+add a submit event at the form, 
+  get all values, book title,author,email url ...
+  create an object with the values 
+  call the function addBook and pass in the object created,, 
+
+function addBook will store data in the database 'POST' method,, check needs
+validate 
+update array
+update ui
