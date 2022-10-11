@@ -19,6 +19,7 @@ async function fetchBooks() {
 
 fetchBooks().then((data) => {
   books = data;
+  console.log(books);
   displayBooks();
 });
 

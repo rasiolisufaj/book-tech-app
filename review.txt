@@ -23,3 +23,14 @@ function addBook will store data in the database 'POST' method,, check needs
 validate 
 update array
 update ui
+____________________________________________
+More Page
+
+header 30 - 40 vh, book icon and title
+
+section book
+  book image        | book description
+  book title        | Rating: 
+  book author       | Similar books: 
+  edit | delete     | 
+
