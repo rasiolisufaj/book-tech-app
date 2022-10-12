@@ -1,3 +1,6 @@
+const bookId = window.location.search.split("=")[1];
+const editButtonEl = document.getElementById("edit");
+const deleteButtonEl = document.getElementById("delete");
 const bookRowElement = document.getElementById("book-row");
 const bookTitleElement = document.getElementById("book-title");
 const bookAuthorElement = document.getElementById("author");
@@ -5,60 +8,54 @@ const bookDescriptionElement = document.getElementById("description");
 const bookImageUrlElement = document.getElementById("book-img-url");
 const bookEmailElement = document.getElementById("email");
 const formElement = document.getElementById("book-form");
-let books = [];
+let book;
 const URL_API = "https://crudcrud.com/api/bf853291695a4bf587dd4304fd13cf47";
 
-// Fetch Books from Backend
-async function fetchBooks() {
-  const response = await fetch(URL_API + "/books");
-  if (response.status === 200) {
-    const data = await response.json();
-    return data;
+// Fetch Book
+async function fetchBook() {
+  const request = await fetch(URL_API + "/books/" + bookId);
+  if (request.status === 200) {
+    book = await request.json();
+    console.log(book);
+  } else {
+    throw new Error("Can`t fetch book");
   }
 }
 
-fetchBooks().then((data) => {
-  books = data;
-  console.log(books);
-  displayBooks();
-});
+// Function displayBook
+function displayBook() {
+  console.log(book);
+}
 
-// Display Books
-function displayBooks() {
-  bookRowElement.innerHTML = "";
-
-  books.forEach((book) => {
-    const bookTemplate = generateBookTemplate(book);
-    bookRowElement.append(bookTemplate);
+fetchBook()
+  .then(() => {
+    displayBook();
+  })
+  .catch((err) => {
+    // window.location = "index.html";
+    console.log(err.message);
   });
+
+// Function Fill Edit Book Form
+function fillEditBookForm() {
+  bookTitleElement.value = book.title;
+  bookAuthorElement.value = book.author;
+  bookEmailElement.value = book.email;
+  bookImageUrlElement.value = book.image;
+  bookDescriptionElement.value = book.description;
 }
 
-// Function Generate Book Template
-function generateBookTemplate(book) {
-  const div = document.createElement("div");
-  div.classList.add("book-info", "flex");
-  div.innerHTML = `
-    <img src="${book.image}" alt="${book.title}" />
-    <h3>${book.title}</h3>
-    <p>
-      ${book.description}
-    </p>
-    <a href="book-page.html?book_id=${book._id}" class="btn">MORE</a>
-    <input type="hidden" value= ${book._id}>
-  `;
-  bookRowElement.append(div);
-  return div;
-}
-
-// Function Add Book
-async function addBook(newBook) {
-  const response = await fetch(URL_API + "/books/", {
-    method: "POST",
+// Function Edit
+async function editBook(editBook) {
+  console.log(editBook);
+  console.log(book);
+  const response = await fetch(URL_API + "/books/" + book._id, {
+    method: "PUT",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(newBook),
+    body: JSON.stringify(editBook),
   });
   if (response.status === 201) {
     const data = await response.json();
@@ -67,7 +64,14 @@ async function addBook(newBook) {
   }
 }
 
-// Create Book
+editButtonEl.addEventListener("click", () => {
+  fillEditBookForm();
+});
+
+deleteButtonEl.addEventListener("click", () => {
+  deleteBook();
+});
+
 formElement.addEventListener("submit", (e) => {
   e.preventDefault();
   const bookTitle = bookTitleElement.value;
@@ -93,8 +97,10 @@ formElement.addEventListener("submit", (e) => {
     image: bookImgUrl,
     description: bookDescription,
   };
-  addBook(newBook).then(() => {
-    displayBooks();
+
+  editBook(newBook).then(() => {
+    book.title = newBook.title;
+    displayBook();
   });
 
   bookTitleElement.value = "";

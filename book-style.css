@@ -1,0 +1,19 @@
+.form-container {
+  border: 2px solid black;
+
+  width: 25%;
+}
+#single-book {
+  border: 2px solid red;
+  display: flex;
+}
+.book-image {
+  border: 2px solid green;
+
+  width: 30%;
+}
+.book-details {
+  border: 2px solid yellow;
+
+  width: 45%;
+}
