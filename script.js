@@ -6,7 +6,7 @@ const bookImageUrlElement = document.getElementById("book-img-url");
 const bookEmailElement = document.getElementById("email");
 const formElement = document.getElementById("book-form");
 let books = [];
-const URL_API = "https://crudcrud.com/api/3eaf27a21b9a41808b119719b1548605";
+const URL_API = "https://crudcrud.com/api/bf853291695a4bf587dd4304fd13cf47";
 
 // Fetch Books from Backend
 async function fetchBooks() {
@@ -43,7 +43,7 @@ function generateBookTemplate(book) {
     <p>
       ${book.description}
     </p>
-    <a href="#" class="btn">MORE</a>
+    <a href="book-page.html" class="btn">MORE</a>
     <input type="hidden" value= ${book._id}>
   `;
   bookRowElement.append(div);
