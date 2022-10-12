@@ -64,12 +64,28 @@ async function editBook(editBook) {
   }
 }
 
+// Function Delete
+async function deleteBook() {
+  const response = await fetch(URL_API + "/books/" + book._id, {
+    method: "DELETE",
+  });
+  if (response.status !== 200) {
+    throw new Error("Error deleting!");
+  }
+}
+
 editButtonEl.addEventListener("click", () => {
   fillEditBookForm();
 });
 
 deleteButtonEl.addEventListener("click", () => {
-  deleteBook();
+  deleteBook()
+    .then(() => {
+      window.location.href = "index.html";
+    })
+    .catch((err) => {
+      alert(err.message);
+    });
 });
 
 formElement.addEventListener("submit", (e) => {
