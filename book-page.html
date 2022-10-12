@@ -15,22 +15,49 @@
   <body>
     <header class="flex header" id="book-header">
       <i class="fa-solid fa-book-open fa-4x"></i>
-      <h1>Hi, I'm <strong>Photon</strong></h1>
+      <h1>Book Title</h1>
     </header>
 
     <section id="single-book">
       <div class="book-image">
-        <img src="/img/form img1.jpg" />
+        <img src="/img/book-1.jpg" />
+        <h3>Book Title</h3>
+        <h4>Book Author</h4>
       </div>
 
       <div class="book-details">
-        <button class="form-btn" id="delete">Delete</button>
-        <button class="form-btn" id="edit">Edit</button>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima natus
+          maxime iste ab optio, asperiores eveniet deserunt veritatis quasi?
+          Sunt laudantium exercitationem, voluptate ad quos iure aliquid
+          excepturi ipsam fuga quis doloremque nam, a culpa unde inventore
+          maxime? Molestias sequi ullam tenetur unde debitis consequuntur quidem
+          dicta aspernatur eaque rem.
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus ex,
+          iusto commodi vero est ratione, odit consectetur esse modi, harum
+          impedit ipsam officiis sint. Eos amet dolor esse harum fugit.
+        </p>
+
+        <h2>Star Rating</h2>
+        <div class="stars">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </div>
+
+        <div class="buttons">
+          <button class="form-btn" id="edit">Edit</button>
+          <button class="form-btn" id="delete">Delete</button>
+        </div>
       </div>
 
-      <div class="form-container">
-        <h1>Add your favourite book!</h1>
-        <form class="book-content">
+      <div class="form-container" id="form-container">
+        <h1>Edit book!</h1>
+        <form class="book-content" id="book-form">
           <input
             type="text"
             name="book-title"
@@ -55,12 +82,12 @@
             rows="10"
             placeholder="Book description"
           ></textarea>
-          <button class="form-btn" type="submit">Edit</button>
+          <button class="form-btn" type="submit">Finish</button>
         </form>
       </div>
     </section>
 
-    <section id="book-form"></section>
+    <!-- <section id="book-form"></section> -->
 
     <footer id="footer">
       <ul class="icons">

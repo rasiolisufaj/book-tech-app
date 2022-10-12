@@ -99,7 +99,9 @@ formElement.addEventListener("submit", (e) => {
   };
 
   editBook(newBook).then(() => {
-    book.title = newBook.title;
+    let id = book._id;
+    book = newBook;
+    book._id = id;
     displayBook();
   });
 
