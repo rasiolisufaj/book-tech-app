@@ -1,0 +1,36 @@
+https://html5up.net/photon
+
+Book CRUD
+  1. Reading all the books
+    1.a fetch
+    1.b populate the books array with fetched data
+    1.c update UI
+
+  2. Create a new book
+    2.a get all user input
+    2.b fetch
+    2.c push to array
+    2.d update UI
+
+// Create Book
+
+add a submit event at the form, 
+  get all values, book title,author,email url ...
+  create an object with the values 
+  call the function addBook and pass in the object created,, 
+
+function addBook will store data in the database 'POST' method,, check needs
+validate 
+update array
+update ui
+____________________________________________
+More Page
+
+header 30 - 40 vh, book icon and title
+
+section book
+  book image        | book description
+  book title        | Rating: 
+  book author       | Similar books: 
+  edit | delete     | 
+

@@ -1,0 +1,63 @@
+.form-container {
+  width: 25%;
+}
+
+#single-book {
+  display: flex;
+}
+
+#book-header {
+  position: relative;
+}
+
+#book-header a {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.book-image {
+  padding: 4em 2em 0;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.book-image img {
+  object-fit: cover;
+  border-radius: 5px;
+  height: 70%;
+}
+
+.book-image h4 {
+  margin: 0;
+}
+
+.checked {
+  color: orange;
+}
+
+.book-details {
+  padding: 4em 2em;
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.buttons {
+  padding-top: 2em;
+}
+
+#form-container {
+  padding: 1em;
+}
+
+#edit {
+  margin-right: 5px;
+}
+
+#delete {
+  background-color: rgb(160, 37, 37);
+}

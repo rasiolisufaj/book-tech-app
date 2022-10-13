@@ -9,49 +9,56 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="book-style.css" />
     <title>Book Tech App</title>
   </head>
   <body>
-    <header class="flex header">
+    <header class="flex header" id="book-header">
+      <a href="index.html">Home</a>
       <i class="fa-solid fa-book-open fa-4x"></i>
-      <h1>
-        Hi, I'm <strong>Photon</strong>, another fine little freebie from
-        <a href="#" id="">HTML5 UP.</a>
-      </h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quia
-        velit consequuntur illum aliquid nam sit!
-      </p>
-      <a href="#book-section" class="header-btn">DISCOVER</a>
+      <h1>Book Title</h1>
     </header>
 
-    <section class="flex" id="book-section">
-      <div class="book-intro">
-        <h1>Adipiscing ament consequat</h1>
-        <hr />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum,
-          doloremque.
+    <section id="single-book">
+      <!-- <div class="book-image">
+        <img src="/img/book-1.jpg" />
+        <h3>Book Title</h3>
+        <h4>Book Author</h4>
+      </div> -->
+
+      <div class="book-details">
+        <!-- <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima natus
+          maxime iste ab optio, asperiores eveniet deserunt veritatis quasi?
+          Sunt laudantium exercitationem, voluptate ad quos iure aliquid
+          excepturi ipsam fuga quis doloremque nam, a culpa unde inventore
+          maxime? Molestias sequi ullam tenetur unde debitis consequuntur quidem
+          dicta aspernatur eaque rem.
         </p>
-      </div>
-      <div id="book-row" class="book-row">
-        <div class="book-info flex">
-          <img src="img/book-1.jpg" alt="" />
-          <h3>Lorem, ipsum dolor.</h3>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem
-            officiis voluptate obcaecati nulla similique laudantium ipsa quis
-            dolores culpa consequatur.
-          </p>
-          <a href="book-page.html" class="btn">MORE</a>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus ex,
+          iusto commodi vero est ratione, odit consectetur esse modi, harum
+          impedit ipsam officiis sint. Eos amet dolor esse harum fugit.
+        </p>
+
+        <h2>Star Rating</h2>
+        <div class="stars">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </div> -->
+
+        <div class="buttons">
+          <button class="form-btn" id="edit">Edit</button>
+          <button class="form-btn" id="delete">Delete</button>
         </div>
       </div>
-    </section>
 
-    <section id="book-form">
-      <div class="form-container">
-        <h1>Add your favourite book!</h1>
-        <form class="book-content">
+      <div class="form-container" id="form-container">
+        <h1>Edit book!</h1>
+        <form class="book-content" id="book-form">
           <input
             type="text"
             name="book-title"
@@ -76,13 +83,12 @@
             rows="10"
             placeholder="Book description"
           ></textarea>
-          <button class="form-btn" type="submit">SUBMIT</button>
+          <button class="form-btn" type="submit">Finish</button>
         </form>
       </div>
-      <div class="book-image">
-        <img src="/img/form img1.jpg" />
-      </div>
     </section>
+
+    <!-- <section id="book-form"></section> -->
 
     <footer id="footer">
       <ul class="icons">
@@ -104,6 +110,6 @@
       </ul>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="book-page.js"></script>
   </body>
 </html>
