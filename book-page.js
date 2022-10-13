@@ -8,8 +8,12 @@ const bookDescriptionElement = document.getElementById("description");
 const bookImageUrlElement = document.getElementById("book-img-url");
 const bookEmailElement = document.getElementById("email");
 const formElement = document.getElementById("book-form");
+const singleBookElement = document.getElementById("single-book");
+const formContainerElement = document.getElementById("form-container");
+const buttonsDiv = document.querySelector(".buttons");
+console.log(buttonsDiv.innerHTML);
 let book;
-const URL_API = "https://crudcrud.com/api/bf853291695a4bf587dd4304fd13cf47";
+const URL_API = "https://crudcrud.com/api/b74d231e7e9147198f5e923fd5c662af";
 
 // Fetch Book
 async function fetchBook() {
@@ -24,7 +28,10 @@ async function fetchBook() {
 
 // Function displayBook
 function displayBook() {
-  console.log(book);
+  singleBookElement.innerHTML = "";
+
+  const bookTemplate = createBookTemplate(book);
+  singleBookElement.append(bookTemplate);
 }
 
 fetchBook()
@@ -35,6 +42,34 @@ fetchBook()
     // window.location = "index.html";
     console.log(err.message);
   });
+
+// Function Create Book Template
+function createBookTemplate(newBook) {
+  singleBookElement.innerHTML = `
+    <div class="book-image">
+      <img src="${newBook.image}" />
+      <h3>${newBook.title}</h3>
+      <h4>${newBook.author}</h4>
+    </div>
+    <div class="book-details">
+      <p>${newBook.description}</p>
+      <h2>Star Rating</h2>
+      <div class="stars">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+      </div>
+      <div class="buttons">
+        <button class="form-btn" id="edit">Edit</button>
+        <button class="form-btn" id="delete">Delete</button>
+      </div>
+    </div>
+  `;
+  singleBookElement.append(formContainerElement);
+  return singleBookElement;
+}
 
 // Function Fill Edit Book Form
 function fillEditBookForm() {
@@ -115,9 +150,10 @@ formElement.addEventListener("submit", (e) => {
   };
 
   editBook(newBook).then(() => {
-    let id = book._id;
-    book = newBook;
-    book._id = id;
+    // let id = book._id;
+    // book = newBook;
+    // book._id = id;
+    book = { ...newBook, _id: book._id };
     displayBook();
   });
 

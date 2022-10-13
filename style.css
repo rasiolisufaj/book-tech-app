@@ -140,7 +140,6 @@ img {
   min-width: 1000px;
   margin: 0 auto;
   flex-wrap: wrap;
-  border: 1px solid red;
 }
 
 .book-info {

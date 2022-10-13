@@ -6,6 +6,18 @@
   display: flex;
 }
 
+#book-header {
+  position: relative;
+}
+
+#book-header a {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .book-image {
   padding: 4em 2em 0;
   display: flex;
