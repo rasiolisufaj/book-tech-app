@@ -1,0 +1,14 @@
+const editBtnElement = document.createElement("button");
+editBtnElement.id = "edit";
+editBtnElement.addEventListener("click", fillEditBookForm);
+editBtnElement.classList.add("form-btn");
+editBtnElement.innerText = "Edit";
+
+const deleteBtnElement = document.createElement("button");
+deleteBtnElement.id = "delete";
+deleteBtnElement.addEventListener("click", handleDelete);
+deleteBtnElement.classList.add("form-btn");
+deleteBtnElement.innerText = "Delete";
+
+bookButtonsContainer.classList.add("buttons");
+bookButtonsContainer.append(editBtnElement, deleteBtnElement);

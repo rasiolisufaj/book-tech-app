@@ -13,7 +13,7 @@ const formContainerElement = document.getElementById("form-container");
 const buttonsDiv = document.querySelector(".buttons");
 console.log(buttonsDiv.innerHTML);
 let book;
-const URL_API = "https://crudcrud.com/api/b74d231e7e9147198f5e923fd5c662af";
+const URL_API = "https://crudcrud.com/api/ef5b03cfbf1646118b368c47370af83a";
 
 // Fetch Book
 async function fetchBook() {
@@ -30,8 +30,7 @@ async function fetchBook() {
 function displayBook() {
   singleBookElement.innerHTML = "";
 
-  const bookTemplate = createBookTemplate(book);
-  singleBookElement.append(bookTemplate);
+  createBookTemplate(book);
 }
 
 fetchBook()
@@ -61,12 +60,27 @@ function createBookTemplate(newBook) {
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>
       </div>
-      <div class="buttons">
-        <button class="form-btn" id="edit">Edit</button>
-        <button class="form-btn" id="delete">Delete</button>
-      </div>
     </div>
   `;
+  const bookButtonsContainer = document.createElement("div");
+
+  const editBtnElement = document.createElement("button");
+  editBtnElement.id = "edit";
+  editBtnElement.addEventListener("click", fillEditBookForm);
+  editBtnElement.classList.add("form-btn");
+  editBtnElement.innerText = "Edit";
+
+  const deleteBtnElement = document.createElement("button");
+  deleteBtnElement.id = "delete";
+  deleteBtnElement.addEventListener("click", handleDelete);
+  deleteBtnElement.classList.add("form-btn");
+  deleteBtnElement.innerText = "Delete";
+
+  bookButtonsContainer.classList.add("buttons");
+  bookButtonsContainer.append(editBtnElement, deleteBtnElement);
+
+  singleBookElement.children[1].append(bookButtonsContainer);
+
   singleBookElement.append(formContainerElement);
   return singleBookElement;
 }
@@ -109,11 +123,7 @@ async function deleteBook() {
   }
 }
 
-editButtonEl.addEventListener("click", () => {
-  fillEditBookForm();
-});
-
-deleteButtonEl.addEventListener("click", () => {
+function handleDelete() {
   deleteBook()
     .then(() => {
       window.location.href = "index.html";
@@ -121,7 +131,7 @@ deleteButtonEl.addEventListener("click", () => {
     .catch((err) => {
       alert(err.message);
     });
-});
+}
 
 formElement.addEventListener("submit", (e) => {
   e.preventDefault();
