@@ -46,7 +46,7 @@ function generateBookTemplate(book) {
     <a href="book-page.html?book_id=${book._id}" class="btn">MORE</a>
     <input type="hidden" value= ${book._id}>
   `;
-  bookRowElement.append(div);
+  // bookRowElement.append(div);
   return div;
 }
 
