@@ -1,7 +1,7 @@
 const bookId = window.location.search.split("=")[1];
 const editButtonEl = document.getElementById("edit");
 const deleteButtonEl = document.getElementById("delete");
-const bookRowElement = document.getElementById("book-row");
+// const bookRowElement = document.getElementById("book-row");
 const bookTitleElement = document.getElementById("book-title");
 const bookAuthorElement = document.getElementById("author");
 const bookDescriptionElement = document.getElementById("description");
@@ -10,8 +10,8 @@ const bookEmailElement = document.getElementById("email");
 const formElement = document.getElementById("book-form");
 const singleBookElement = document.getElementById("single-book");
 const formContainerElement = document.getElementById("form-container");
-const buttonsDiv = document.querySelector(".buttons");
-console.log(buttonsDiv.innerHTML);
+// const buttonsDiv = document.querySelector(".buttons");
+// console.log(buttonsDiv.innerHTML);
 let book;
 const URL_API = "https://crudcrud.com/api/70542af497a84eee9cedf55c54686565";
 
@@ -82,7 +82,7 @@ function createBookTemplate(newBook) {
   singleBookElement.children[1].append(bookButtonsContainer);
 
   singleBookElement.append(formContainerElement);
-  return singleBookElement;
+  // return singleBookElement;
 }
 
 // Function Fill Edit Book Form
@@ -109,7 +109,6 @@ async function editBook(editBook) {
   if (response.status === 201) {
     const data = await response.json();
     books.push(data);
-    console.log(data);
   }
 }
 
